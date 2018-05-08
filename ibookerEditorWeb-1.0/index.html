@@ -1,0 +1,49 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta charset="utf-8">
+<title>首页 - 书客编辑器</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"> 
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, user-scalable=no">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="format-detection" content="telephone=no" />
+<META name="AUTHOR" content="zoufengli,zrunker@yahoo.com">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta http-equiv="Access-Control-Allow-Origin" content="*">
+<meta http-equiv="pragma" content="no-cache">
+<meta http-equiv="cache-control" content="no-cache">
+<meta http-equiv="expires" content="0">
+<meta itemprop="name" content="书客编辑器">
+<meta itemprop="image" content="resources/images-logos/ic_launcher_96.png">
+<meta http-equiv="keywords" content="爱书客，书客富文本编辑器，写作分享，写作管理，写作统计">
+<meta http-equiv="description" content="爱书客，采用书客富文本编辑器打造的一款提供用户个人或多人协作写作，并且对写作内容进行分析、统计、分享的管理平台。爱书客平台采用makedown标记语言，专注于简化写作过程，写作分享，写作管理，写作统计等。不一样的写作方式，不一样的管理平台。爱书客，做自己的写作管理平台。">
+<!--[if lt IE 9]>
+	<script type="text/javascript" src="resources/js/html5shiv.min.js"></script>
+	<script type="text/javascript" src="resources/js/respond.min.js"></script>
+<![endif]-->
+
+<link rel="shortcut icon" href="favicon.ico" >
+<link rel="icon" type="image/gif" href="animated_favicon1.gif" >
+
+<link rel="stylesheet" rev="stylesheet" href="ibookereditor/css/ibooker_editor_min.css" type="text/css" />
+<link rel="stylesheet" rev="stylesheet" href="ibookereditor/css/ibooker_editor_md_min.css" type="text/css"/>
+
+<body>
+	
+	<!-- 书客编辑器 -->
+	<div id="ibooker_editor"></div>
+
+</body>
+
+<script type="text/javascript" src="ibookereditor/ibooker-editor-min-1.0.js"></script>
+<script type="text/javascript">
+	window.onload = function() {
+		// 初始化书客编辑器
+		ibookerEditor.setIbookerEditorOptions({
+			editorWidth : "100%", // 可以设置数字或者百分百
+			editorHeight : "100%" // 可以设置数字或者百分百
+		});
+	};
+</script>
+</html>
