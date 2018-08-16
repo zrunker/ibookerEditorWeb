@@ -1,5 +1,5 @@
 /**
- * 书客编辑器v1.1 - 基于showdown.js
+ * 书客编辑器v1.2 - 基于showdown.js
  * 
  * @author 邹峰立
  */
@@ -2690,38 +2690,42 @@ ibookerEditor.sdConverter = (function() {
 	function compile() {
 		if (lock == false || lock == "false") {
 			lock = true;
-			// 初始化输入框和预览框
-			initEditorCP();
-			if (editorC != null && editorC != undefined && editorC != "" && editorP != null && editorP != undefined && editorP != "") {
-				if (preText === editorC.value) {
-					lock = false;
-					return;
-				}
+			try {
+				// 初始化输入框和预览框
+				initEditorCP();
+				if (editorC != null && editorC != undefined && editorC != "" && editorP != null && editorP != undefined && editorP != "") {
+					if (preText === editorC.value) {
+						lock = false;
+						return;
+					}
 
-				preText = editorC.value;
-				var html = ibookerEditor.sdConverter.converToHtml(preText);
-				if (preHtml === html) {
-					lock = false;
-					return;
-				}
-				preHtml = html;
-				editorP.innerHTML = preHtml;
+					preText = editorC.value;
+					var html = ibookerEditor.sdConverter.converToHtml(preText);
+					if (preHtml === html) {
+						lock = false;
+						return;
+					}
+					preHtml = html;
+					editorP.innerHTML = preHtml;
 
-				// MathJax进行转换
-				if (isSupportMathJax || isSupportMathJax == true || isSupportMathJax == "true") {
-					MathJax.Hub.Queue(
-	    				["Typeset",MathJax.Hub, editorP.innerHTML],
-	    				["resetEquationNumbers", MathJax.InputJax.TeX]
-	   				);
+					// MathJax进行转换
+					if ( isSupportMathJax == false || isSupportMathJax == "false") {
+						// 不进行Math
+					} else {
+						MathJax.Hub.Queue(
+		    				["Typeset",MathJax.Hub, editorP.innerHTML],
+		    				["resetEquationNumbers", MathJax.InputJax.TeX]
+		   				);
+					}
+					
+					// 重置输入框的高度
+					var pHeight = editorP.offsetHeight;
+					var height = editorC.offsetHeight;
+					if (height < pHeight) {
+						editorC.style.minHeight = (pHeight + 15) + "px";
+					};
 				}
-				
-				// 重置输入框的高度
-				var pHeight = editorP.offsetHeight;
-				var height = editorC.offsetHeight;
-				if (height < pHeight) {
-					editorC.style.minHeight = (pHeight + 15) + "px";
-				};
-			}
+			} catch(e){}
 			lock = false;
 		}
 	};
